@@ -1,0 +1,5 @@
+requests
+bs4
+html2text
+openai==0.28
+datasets
