@@ -125,6 +125,10 @@ if __name__ == "__main__":
         video_tables.append(df)
     df = pd.concat(video_tables,ignore_index=True)
     df['Result'] = df['Result'].apply(lambda x: x.strip() if not x is None else x)
+    df['Half'] = df['Half'].apply(lambda x: x.strip() if not x is None else x)
+    df['Rail'] = df['Rail'].apply(lambda x: x.strip() if not x is None else x)
+    df.drop(columns=['Unnamed: 3'], inplace=True)
+
 
     print(df)
     df.to_csv('output.csv',index=False)
