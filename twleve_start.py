@@ -3,6 +3,7 @@ import json
 from io import StringIO
 import requests
 import pandas as pd
+import numpy as np
 
 import os
 key = os.environ.get("TWELVE_LABS_API_KEY")
@@ -30,12 +31,20 @@ def get_local_gen()->str:
     with open("temp.txt",'r') as file:
         return file.read()
 
+def format_table(raw:str) -> str:
+    pipe_index = raw.find('|')
+    out = raw[pipe_index+1:]
+    return out
 
 #store_gen()
 gen_text = get_local_gen()
+gen_text = format_table(gen_text)
 print(gen_text)
 table_io = StringIO(gen_text)
 df = pd.read_csv(table_io,sep='|', skipinitialspace=True,engine='python')
+df.replace('-', np.nan, inplace=True)
+df.columns = df.columns.str.strip()
+print(df.columns)
 
 print(df.head())
 
