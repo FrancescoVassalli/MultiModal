@@ -41,7 +41,7 @@ def get_local_gen(vid_id)->str:
     with open(get_temp_file_name(vid_id),'r') as file:
         return file.read()
 
-def format_table(raw:str) -> pd.DataFrame:
+def format_table(raw:str,video_id:str) -> pd.DataFrame:
     pipe_index = raw.find('|')
     out = raw[pipe_index+1:]
     table_io = StringIO(out)
@@ -49,6 +49,7 @@ def format_table(raw:str) -> pd.DataFrame:
         df = pd.read_csv(table_io,sep='|', skipinitialspace=True,engine='python')
         df.replace('-', np.nan, inplace=True)
         df.columns = df.columns.str.strip()
+        df['ID'] = video_id
         return df
     except EmptyDataError as e:
         return
@@ -58,7 +59,7 @@ def format_table(raw:str) -> pd.DataFrame:
 def get_table_for_video(video_id:str) -> pd.DataFrame:
     #store_gen(video_id)
     gen_text = get_local_gen(video_id)
-    return format_table(gen_text)
+    return format_table(gen_text,video_id)
 
 
 if __name__ == "__main__":

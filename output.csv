@@ -1,106 +1,106 @@
-Athlete,Trick,Result,Unnamed: 3
-----------,-----------------------------------------,---------,
-Craig McMorris ,Impressive jump                    ,Success,
-Craig McMorris ,Mid-air spin                       ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Craig McMorris ,Massive jump                       ,Success,
-Craig McMorris ,Series of spins and flips          ,Success,
-Person-1 ,Frontside double 1440 off the toes       ,Success,
-Person-1 ,Backside 1800                            ,Success,
-Person-1 ,Lip slide                                ,Success,
-Person-1 ,Frontside double 1440 off the toes       ,Success,
-Person-1 ,Backside 1800                            ,Success,
-Person-1 ,Ollie double flip                        ,Success,
-Person-1 ,Double Vama flip                         ,Success,
-Person-2 ,Backside triple 1620                     ,Success,
-Person-2 ,Cap 10 double                            ,Success,
-Person-2 ,Switch back 16                           ,Success,
-Person-2 ,Backside 1800                            ,Success,
-Person-2 ,Melon poke                               ,Success,
-Person-2 ,Backside melon rotation                  ,Success,
-----------,-----------------------------------,---------,
-person-1 ,Descent down the mountain         ,Success,
-person-1 ,Backflip                          ,Success,
-person-2 ,Triple court rotation             ,Success,
-person-2 ,Triple court 14-40 double grab    ,Failure,
------------,--------------------------,---------,
-Shaun White ,Snow ramp trick          ,Success,
-Person-1  ,Rail trick                ,Failure,
-Person-1  ,Second rail trick attempt ,Failure,
-----------,-------------,---------,
-Yugo Tatsuko ,Mid-air spin ,Success,
------------,-----------------------------------,---------,
-Shaun White ,Frontside double cork 1440        ,Success,
-Shaun White ,Back-to-back 1440s                ,Success,
-Shaun White ,"Skyhook, frontside 540            ",Success,
-Shaun White ,"Double McTwist, tomahawk          ",Success,
-Shaun White ,Frontside double cork 1260        ,Success,
-----------,----------------------,---------,
-Iyumu Hirano ,Front 1440 double   ,Success,
-Iyumu Hirano ,Cap 1440 double     ,Success,
-Iyumu Hirano ,Back 12             ,Success,
-Iyumu Hirano ,Front 14 double     ,Success,
-Iyumu Hirano ,Cap 14 double       ,Success,
-Iyumu Hirano ,Front 12 double     ,Success,
-Iyumu Hirano ,Back 12 double      ,Success,
-Iyumu Hirano ,Backside air        ,Success,
-,,,
-----------,-----------------------------,----------,
-person-1 ,Jump and trick              ,Success,
-person-1 ,Backside twelve sixty       ,Success,
-person-1 ,Frontside fourteen forty    ,Success,
-person-1 ,Cab nine                    ,Success,
-person-1 ,Switchback twelve           ,Success,
-person-2 ,Switch backside ten eighty  ,Success,
-person-2 ,Backside twelve sixty       ,Success,
-person-2 ,Frontside fourteen forty    ,Success,
-person-2 ,Cab ten                     ,Success,
-person-2 ,Front twelve                ,Success,
-person-3 ,Switch McTwist              ,Success,
-person-3 ,Back twelve double          ,Success,
-person-3 ,Frontside fourteen forty    ,Success,
-person-3 ,Cab nine                    ,Success,
-person-3 ,Switchback twelve           ,Success,
-person-4 ,Switchback double ten       ,Success,
-person-4 ,Switchback double twelve    ,Success,
-person-4 ,Cab nine hundred            ,Success,
-person-4 ,Switch McTwist              ,Success,
-person-4 ,Back twelve double          ,Success,
-person-4 ,Frontside fourteen forty    ,Success,
------------,-------------------------------,----------,
-person-1  ,Tail Press                    ,Success,
-person-1  ,Nose Press                    ,Success,
-person-1  ,Ollie                         ,Success,
-person-1  ,Nollie                        ,Success,
-person-1  ,Frontside 180                 ,Success,
-person-1  ,Backside 180                  ,Success,
-person-1  ,Frontside 360                 ,Success,
-person-1  ,Backside 180 Nose Roll        ,Success,
-person-1  ,Frontside 180 Tail Roll       ,Success,
-person-1  ,Frontside Shifty              ,Success,
-person-1  ,Tripod                        ,Success,
-person-1  ,Toe Side Spray                ,Success,
-person-1  ,Heel Side Spray               ,Success,
-person-1  ,Layback                       ,Success,
-person-1  ,Laid Out Carve                ,Success,
-person-1  ,Nollie Chip Shot              ,Success,
-person-1  ,Toe Chip Frontside 180 Out    ,Success,
-person-1  ,Backside 180 Out              ,Success,
-person-1  ,Heel Side Carve Grab          ,Success,
-person-1  ,Toe Side Carve Grab           ,Success,
-person-1  ,Reverse Carve                 ,Success,
-person-1  ,270 Spray to Pull Back        ,Success,
-person-1  ,Nose Block                    ,Success,
-person-1  ,Layback Good Time             ,Success,
-,,,
+Athlete,Trick,Result,Unnamed: 3,ID
+----------,-----------------------------------------,---------,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Impressive jump                    ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Mid-air spin                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Massive jump                       ,Success,,66ae852d7b2deac81dd1286e
+Craig McMorris ,Series of spins and flips          ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Frontside double 1440 off the toes       ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Backside 1800                            ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Lip slide                                ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Frontside double 1440 off the toes       ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Backside 1800                            ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Ollie double flip                        ,Success,,66ae852d7b2deac81dd1286e
+Person-1 ,Double Vama flip                         ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Backside triple 1620                     ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Cap 10 double                            ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Switch back 16                           ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Backside 1800                            ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Melon poke                               ,Success,,66ae852d7b2deac81dd1286e
+Person-2 ,Backside melon rotation                  ,Success,,66ae852d7b2deac81dd1286e
+----------,-----------------------------------,---------,,66ae84bf7b2deac81dd1286c
+person-1 ,Descent down the mountain         ,Success,,66ae84bf7b2deac81dd1286c
+person-1 ,Backflip                          ,Success,,66ae84bf7b2deac81dd1286c
+person-2 ,Triple court rotation             ,Success,,66ae84bf7b2deac81dd1286c
+person-2 ,Triple court 14-40 double grab    ,Failure,,66ae84bf7b2deac81dd1286c
+-----------,--------------------------,---------,,66ae82ab7b2deac81dd1286b
+Shaun White ,Snow ramp trick          ,Success,,66ae82ab7b2deac81dd1286b
+Person-1  ,Rail trick                ,Failure,,66ae82ab7b2deac81dd1286b
+Person-1  ,Second rail trick attempt ,Failure,,66ae82ab7b2deac81dd1286b
+----------,-------------,---------,,66ae78957b2deac81dd12852
+Yugo Tatsuko ,Mid-air spin ,Success,,66ae78957b2deac81dd12852
+-----------,-----------------------------------,---------,,66ae77cb7b2deac81dd1284e
+Shaun White ,Frontside double cork 1440        ,Success,,66ae77cb7b2deac81dd1284e
+Shaun White ,Back-to-back 1440s                ,Success,,66ae77cb7b2deac81dd1284e
+Shaun White ,"Skyhook, frontside 540            ",Success,,66ae77cb7b2deac81dd1284e
+Shaun White ,"Double McTwist, tomahawk          ",Success,,66ae77cb7b2deac81dd1284e
+Shaun White ,Frontside double cork 1260        ,Success,,66ae77cb7b2deac81dd1284e
+----------,----------------------,---------,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Front 1440 double   ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Cap 1440 double     ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Back 12             ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Front 14 double     ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Cap 14 double       ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Front 12 double     ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Back 12 double      ,Success,,66ae77ae7b2deac81dd1284d
+Iyumu Hirano ,Backside air        ,Success,,66ae77ae7b2deac81dd1284d
+,,,,66ae77ae7b2deac81dd1284d
+----------,-----------------------------,----------,,66ae76647b2deac81dd1284a
+person-1 ,Jump and trick              ,Success,,66ae76647b2deac81dd1284a
+person-1 ,Backside twelve sixty       ,Success,,66ae76647b2deac81dd1284a
+person-1 ,Frontside fourteen forty    ,Success,,66ae76647b2deac81dd1284a
+person-1 ,Cab nine                    ,Success,,66ae76647b2deac81dd1284a
+person-1 ,Switchback twelve           ,Success,,66ae76647b2deac81dd1284a
+person-2 ,Switch backside ten eighty  ,Success,,66ae76647b2deac81dd1284a
+person-2 ,Backside twelve sixty       ,Success,,66ae76647b2deac81dd1284a
+person-2 ,Frontside fourteen forty    ,Success,,66ae76647b2deac81dd1284a
+person-2 ,Cab ten                     ,Success,,66ae76647b2deac81dd1284a
+person-2 ,Front twelve                ,Success,,66ae76647b2deac81dd1284a
+person-3 ,Switch McTwist              ,Success,,66ae76647b2deac81dd1284a
+person-3 ,Back twelve double          ,Success,,66ae76647b2deac81dd1284a
+person-3 ,Frontside fourteen forty    ,Success,,66ae76647b2deac81dd1284a
+person-3 ,Cab nine                    ,Success,,66ae76647b2deac81dd1284a
+person-3 ,Switchback twelve           ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Switchback double ten       ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Switchback double twelve    ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Cab nine hundred            ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Switch McTwist              ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Back twelve double          ,Success,,66ae76647b2deac81dd1284a
+person-4 ,Frontside fourteen forty    ,Success,,66ae76647b2deac81dd1284a
+-----------,-------------------------------,----------,,66ae76597b2deac81dd12849
+person-1  ,Tail Press                    ,Success,,66ae76597b2deac81dd12849
+person-1  ,Nose Press                    ,Success,,66ae76597b2deac81dd12849
+person-1  ,Ollie                         ,Success,,66ae76597b2deac81dd12849
+person-1  ,Nollie                        ,Success,,66ae76597b2deac81dd12849
+person-1  ,Frontside 180                 ,Success,,66ae76597b2deac81dd12849
+person-1  ,Backside 180                  ,Success,,66ae76597b2deac81dd12849
+person-1  ,Frontside 360                 ,Success,,66ae76597b2deac81dd12849
+person-1  ,Backside 180 Nose Roll        ,Success,,66ae76597b2deac81dd12849
+person-1  ,Frontside 180 Tail Roll       ,Success,,66ae76597b2deac81dd12849
+person-1  ,Frontside Shifty              ,Success,,66ae76597b2deac81dd12849
+person-1  ,Tripod                        ,Success,,66ae76597b2deac81dd12849
+person-1  ,Toe Side Spray                ,Success,,66ae76597b2deac81dd12849
+person-1  ,Heel Side Spray               ,Success,,66ae76597b2deac81dd12849
+person-1  ,Layback                       ,Success,,66ae76597b2deac81dd12849
+person-1  ,Laid Out Carve                ,Success,,66ae76597b2deac81dd12849
+person-1  ,Nollie Chip Shot              ,Success,,66ae76597b2deac81dd12849
+person-1  ,Toe Chip Frontside 180 Out    ,Success,,66ae76597b2deac81dd12849
+person-1  ,Backside 180 Out              ,Success,,66ae76597b2deac81dd12849
+person-1  ,Heel Side Carve Grab          ,Success,,66ae76597b2deac81dd12849
+person-1  ,Toe Side Carve Grab           ,Success,,66ae76597b2deac81dd12849
+person-1  ,Reverse Carve                 ,Success,,66ae76597b2deac81dd12849
+person-1  ,270 Spray to Pull Back        ,Success,,66ae76597b2deac81dd12849
+person-1  ,Nose Block                    ,Success,,66ae76597b2deac81dd12849
+person-1  ,Layback Good Time             ,Success,,66ae76597b2deac81dd12849
+,,,,66ae76597b2deac81dd12849
