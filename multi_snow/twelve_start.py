@@ -45,7 +45,7 @@ def format_table(raw:str) -> pd.DataFrame:
     return df
 
 vid_id = "66ad42ce7b2deac81dd12825"
-#store_gen(vid_id)
+store_gen(vid_id)
 gen_text = get_local_gen(vid_id)
 df = format_table(gen_text)
 print(df.columns)
