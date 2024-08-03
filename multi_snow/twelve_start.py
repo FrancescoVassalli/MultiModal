@@ -35,21 +35,20 @@ def get_local_gen(vid_id)->str:
     with open(get_temp_file_name(vid_id),'r') as file:
         return file.read()
 
-def format_table(raw:str) -> str:
+def format_table(raw:str) -> pd.DataFrame:
     pipe_index = raw.find('|')
     out = raw[pipe_index+1:]
-    return out
+    table_io = StringIO(out)
+    df = pd.read_csv(table_io,sep='|', skipinitialspace=True,engine='python')
+    df.replace('-', np.nan, inplace=True)
+    df.columns = df.columns.str.strip()
+    return df
 
 vid_id = "66ad42ce7b2deac81dd12825"
 #store_gen(vid_id)
 gen_text = get_local_gen(vid_id)
-gen_text = format_table(gen_text)
-print(gen_text)
-table_io = StringIO(gen_text)
-df = pd.read_csv(table_io,sep='|', skipinitialspace=True,engine='python')
-df.replace('-', np.nan, inplace=True)
-df.columns = df.columns.str.strip()
+df = format_table(gen_text)
 print(df.columns)
 
-print(df.head())
+print(df)
 

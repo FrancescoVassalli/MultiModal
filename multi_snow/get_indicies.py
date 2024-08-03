@@ -1,8 +1,12 @@
 import requests
 import os
 import json
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
+from groq import Groq
+from multi_snow.twelve_start import format_table
+
 key = os.environ.get("TWELVE_LABS_API_KEY")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"), )
 
 def get_indicies() ->Dict[str,Dict[str,str]]:
     """ Get all the indicies for your account into a dict dict"""
@@ -58,6 +62,20 @@ def get_transcript_string(transcript:List[Dict[str,Any]]) -> str:
     else:
         return None
 
+def get_transcript(index_id:str,video_id:str) -> Tuple[List[Dict[str,Any]],str]:
+    """get the transcript for a single video returns the same data in 12labs dict format and as a combined string"""
+    transcript_get_url = f"https://api.twelvelabs.io/v1.2/indexes/{index_id}/videos/{video_id}/transcription"
+
+
+    headers = {
+        "accept": "application/json",
+        "x-api-key": key,
+        "Content-Type": "application/json"
+    }
+    response = requests.get(transcript_get_url, headers=headers)
+    response_dict = json.loads(response.text)
+    return (response_dict['data'],get_transcript_string(response_dict['data']))
+
 
 def get_transcripts(index_map:Dict[str,Dict[str,Any]]) -> None:
     """ get the transcript for each video added to the index map"""
@@ -66,26 +84,38 @@ def get_transcripts(index_map:Dict[str,Dict[str,Any]]) -> None:
         transcript_dicts = []
         transcript_strs = []
         for video_id in index_data['video_ids']:
-            transcript_get_url = f"https://api.twelvelabs.io/v1.2/indexes/{index_id}/videos/{video_id}/transcription"
-
-
-            headers = {
-                "accept": "application/json",
-                "x-api-key": key,
-                "Content-Type": "application/json"
-            }
-
-            response = requests.get(transcript_get_url, headers=headers)
-            response_dict = json.loads(response.text)
-            transcript_dicts.append(response_dict['data'])
-            transcript_strs.append(get_transcript_string(response_dict['data']))
+            transcript_dict, transcript_str = get_transcript(index_id,video_id)
+            transcript_dicts.append(transcript_dict)
+            transcript_strs.append(transcript_str)
 
         print(f"{index_name}: {transcript_strs}")
         index_map[index_name]['transcript_dicts'] = transcript_dicts
         index_map[index_name]['transcript_str'] = transcript_strs
 
 
+def make_trick_table_from_transcript_with_groq(transcript:str) -> str:
+    system_prompt = {
+        "role": "system",
+        "content":
+        "You will be given a transcript from a snowboarding video. Summarize this trancript by making a table with one row per trick performed. Add columns for the name of the person performing the trick, the name of the trick, and success/failure"
+    }
+    chat_history = [system_prompt]
+    chat_history.append({"role": "user", "content": transcript})
+    response = client.chat.completions.create(model="llama3-70b-8192",
+                                            messages=chat_history,
+                                            max_tokens=100,
+                                            temperature=1.2)
+    print(response.choices[0].message.content)
+
+
+
+
 if __name__ == "__main__":
     index_map = get_indicies()
-    get_videos(index_map)
-    get_transcripts(index_map)
+    filtered_index_map = {'SNOW2':index_map['SNOW2']}
+    get_videos(filtered_index_map)
+    filtered_index_map['SNOW2']['video_ids'] = [filtered_index_map['SNOW2']['video_ids'][2]]
+    get_transcripts(filtered_index_map)
+    print(len(filtered_index_map['SNOW2']))
+    make_trick_table_from_transcript_with_groq(filtered_index_map['SNOW2']['transcript_str'][0])
+
