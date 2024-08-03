@@ -9,7 +9,7 @@ import os
 key = os.environ.get("TWELVE_LABS_API_KEY")
 client = TwelveLabs(api_key=key)
 
-def generate()->str:
+def generate(vid_id:str)->str:
     BASE_URL = "https://api.twelvelabs.io/v1.2"
     data = {
         "video_id": "66ad42ce7b2deac81dd12825",
@@ -22,13 +22,17 @@ def generate()->str:
     response_dict = json.loads(response.text)
     return response_dict['summary']
 
-def store_gen()->None:
-    generate_text = generate()
-    with open("temp.txt",'w') as gen_holder:
+def get_temp_file_name(vid_id:str) -> str:
+    """generate a temp name to store responses in"""
+    return f"temp_{vid_id}.txt"
+
+def store_gen(vid_id:str)->None:
+    generate_text = generate(vid_id)
+    with open(get_temp_file_name(vid_id),'w') as gen_holder:
         gen_holder.write(generate_text)
 
-def get_local_gen()->str:
-    with open("temp.txt",'r') as file:
+def get_local_gen(vid_id)->str:
+    with open(get_temp_file_name(vid_id),'r') as file:
         return file.read()
 
 def format_table(raw:str) -> str:
@@ -36,8 +40,9 @@ def format_table(raw:str) -> str:
     out = raw[pipe_index+1:]
     return out
 
-#store_gen()
-gen_text = get_local_gen()
+vid_id = "66ad42ce7b2deac81dd12825"
+#store_gen(vid_id)
+gen_text = get_local_gen(vid_id)
 gen_text = format_table(gen_text)
 print(gen_text)
 table_io = StringIO(gen_text)
