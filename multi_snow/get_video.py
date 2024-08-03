@@ -4,7 +4,7 @@ import os
 
 key = os.environ.get("TWELVE_LABS_API_KEY")
 
-def get_video_id(query:str,retry:int=0)->str:
+def get_video_data(query:str,retry:int=0)->str:
     """get the video id for a given query"""
     BASE_URL = "https://api.twelvelabs.io/v1.2"
     data = {
@@ -22,6 +22,15 @@ def get_video_id(query:str,retry:int=0)->str:
     search = json.loads(response.text)
     if retry < len(search['data']):
         return search['data'][retry]['video_id']
+    else:
+        None
+
+
+def get_video_id(query:str,retry:int=0)->str:
+    """get the video id for a given query"""
+    video_data = get_video_data(query,retry)
+    if not video_data is None:
+        return video_data['video_id']
     else:
         None
 
