@@ -2,7 +2,7 @@ import pandas as pd
 from multi_snow.get_video import get_video_data
 
 df = pd.read_csv('output.csv')
-trick_list = df['Trick'].toList()
+trick_list = df['Trick'].to_list()
 query_id = []
 thumb_url = []
 for trick in trick_list:

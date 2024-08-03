@@ -20,10 +20,12 @@ def get_video_data(query:str,retry:int=0)->str:
     }
     response = requests.post(f"{BASE_URL}/search", json=data, headers={"x-api-key": key})
     search = json.loads(response.text)
-    if retry < len(search['data']):
-        return search['data'][retry]['video_id']
+    if 'data' in search and retry < len(search['data']):
+        return search['data'][retry]
     else:
-        None
+        print(response.text)
+
+
 
 
 def get_video_id(query:str,retry:int=0)->str:
