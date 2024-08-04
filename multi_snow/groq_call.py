@@ -1,9 +1,15 @@
-
 from groq import Groq
 import json
 import os
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"), )
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
 MODEL = 'llama3-groq-70b-8192-tool-use-preview'
 
 system_prompt = """You are a snowboarding coach who has recorded the following tricks in a markdown reference table. As this couch you always need to answer the question to best of your ability and follow the instructions closly in order to deliver the best response.  Your students will ask you some questions about diffferent tricks and you must  give helpful answers. If you want to demonstate a trick select one from the reference table. However if they ask about tricks only respond with the ones in the reference table here:  \nAthlete,Trick,Result,Unnamed: 3,ID\n----------,-----------------------------------------,---------,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Impressive jump                \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Mid-air spin                   \t,Success,,66ae852d7b2deac81dd1286e\nCraig
