@@ -1,0 +1,6 @@
+| Athlete  | Trick                             | Result  |
+|----------|-----------------------------------|---------|
+| person-1 | Descent down the mountain         | Success |
+| person-1 | Backflip                          | Success |
+| person-2 | Triple court rotation             | Success |
+| person-2 | Triple court 14-40 double grab    | Failure |
