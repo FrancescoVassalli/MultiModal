@@ -1,0 +1,12 @@
+This video has a snowboarding competition. Below is the table that records one row per trick performed:
+| Athlete  | Trick               | Result  |
+|----------|----------------------|---------|
+| Iyumu Hirano | Front 1440 double   | Success |
+| Iyumu Hirano | Cap 1440 double     | Success |
+| Iyumu Hirano | Back 12             | Success |
+| Iyumu Hirano | Front 14 double     | Success |
+| Iyumu Hirano | Cap 14 double       | Success |
+| Iyumu Hirano | Front 12 double     | Success |
+| Iyumu Hirano | Back 12 double      | Success |
+| Iyumu Hirano | Backside air        | Success |
+The table captures the sequence of tricks performed by Iyumu Hirano during his run at the Winter X Games in Aspen, Colorado.

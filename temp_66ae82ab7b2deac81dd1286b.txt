@@ -1,0 +1,5 @@
+| Athlete   | Trick                    | Result  |
+|-----------|--------------------------|---------|
+| Shaun White | Snow ramp trick          | Success |
+| Person-1  | Rail trick                | Failure |
+| Person-1  | Second rail trick attempt | Failure |

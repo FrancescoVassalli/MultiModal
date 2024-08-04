@@ -1,0 +1,24 @@
+This video has a snowboarding competition. Below is a table that records one row per trick performed, including the athlete, the trick, and the result.
+| Athlete  | Trick                       | Result   |
+|----------|-----------------------------|----------|
+| person-1 | Jump and trick              | Success  |
+| person-1 | Backside twelve sixty       | Success  |
+| person-1 | Frontside fourteen forty    | Success  |
+| person-1 | Cab nine                    | Success  |
+| person-1 | Switchback twelve           | Success  |
+| person-2 | Switch backside ten eighty  | Success  |
+| person-2 | Backside twelve sixty       | Success  |
+| person-2 | Frontside fourteen forty    | Success  |
+| person-2 | Cab ten                     | Success  |
+| person-2 | Front twelve                | Success  |
+| person-3 | Switch McTwist              | Success  |
+| person-3 | Back twelve double          | Success  |
+| person-3 | Frontside fourteen forty    | Success  |
+| person-3 | Cab nine                    | Success  |
+| person-3 | Switchback twelve           | Success  |
+| person-4 | Switchback double ten       | Success  |
+| person-4 | Switchback double twelve    | Success  |
+| person-4 | Cab nine hundred            | Success  |
+| person-4 | Switch McTwist              | Success  |
+| person-4 | Back twelve double          | Success  |
+| person-4 | Frontside fourteen forty    | Success  |

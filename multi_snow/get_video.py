@@ -51,15 +51,32 @@ def get_video_from_id(video_id:str):
 
     response = requests.get(url, headers=headers)
 
-    return json.loads(response.text)['hls']['video_url']
+    return json.loads(response.text)
+
+def get_video_hls_from_id(id:str) -> str:
+    ''' given a query return a hls url'''
+    video_id = get_video_id(query,retry)
+    if not video_id is None:
+        return get_video_from_id(video_id)['hls']['video_url']
 
 def get_video_hls_from_query(query:str,retry:int=0) -> str:
     ''' given a query return a hls url'''
     video_id = get_video_id(query,retry)
     if not video_id is None:
-        return get_video_from_id(video_id)
+        return get_video_hls_from_id(video_id)
 
+def get_video_display_from_id(video_id:str) -> str:
+    ''' given a query return a hls url'''
+    if not video_id is None:
+        video_dict = get_video_from_id(video_id)
+        short_dict = {
+                    'hls': video_dict['hls']['video_url'],
+                    'thumbnails': video_dict['hls']['thumbnail_urls'],
+                    'youtube': video_dict['source']['url']
+                }
+        return short_dict
 
 if __name__ == "__main__":
     query = '''Triple court 14-40 double grab'''
-    print(get_video_hls_from_query(query))
+    video_id = '66ae852d7b2deac81dd1286e'
+    print(get_video_display_from_id(video_id))
