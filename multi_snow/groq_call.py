@@ -70,7 +70,6 @@ def run_conversation(user_prompt):
     return_list = []
 
     response_message = response.choices[0].message
-    return_list.append(response_message)
     print(f"First message {response_message}")
     tool_calls = response_message.tool_calls
     print(f"Tool calls {tool_calls}")
@@ -99,6 +98,9 @@ def run_conversation(user_prompt):
             messages=messages
         )
         return_list.append(second_response.choices[0].message.content)
+    else:
+        print(f"No tools message {response_message.content}")
+        return_list.append(response_message.content)
     return json.dumps(return_list)
 
 if __name__ == "__main__":

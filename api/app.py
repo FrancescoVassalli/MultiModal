@@ -25,6 +25,8 @@ def chat_input():
     # Execute the Python package function using the JSON string
     result = run_conversation(data['message'])
 
+    print(f"Flask results: {result}")
+
     return json.dumps({"message": "Success", "result": result})
 
 
