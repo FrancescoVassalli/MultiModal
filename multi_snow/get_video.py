@@ -1,6 +1,10 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 key = os.environ.get("TWELVE_LABS_API_KEY")
 
@@ -71,7 +75,6 @@ def get_video_display_from_id(video_id:str) -> str:
                     'youtube': video_dict['source']['url']
                 }
         return short_dict
-
 
 if __name__ == "__main__":
     query = '''Triple court 14-40 double grab'''

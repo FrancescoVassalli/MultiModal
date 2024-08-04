@@ -1,3 +1,4 @@
+import os
 from twelvelabs import TwelveLabs
 import json
 from io import StringIO
@@ -5,9 +6,11 @@ import requests
 import pandas as pd
 import numpy as np
 from pandas.errors import EmptyDataError
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 
-import os
 key = os.environ.get("TWELVE_LABS_API_KEY")
 client = TwelveLabs(api_key=key)
 
@@ -99,4 +102,3 @@ if __name__ == "__main__":
     df = get_table_for_video(vid_id)
     print(df.columns)
     print(df)
-
