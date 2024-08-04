@@ -131,7 +131,7 @@ def get_video(query:str):
 
 def get_score(query:str):
     print(f"scoring input : {query}")
-    result = json.dumps(score_trick(query))
+    result = json.dumps(score_trick(query)+100)
     print(f"scoring: {result}")
     return result
 
