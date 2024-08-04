@@ -99,7 +99,7 @@ def run_conversation(user_prompt):
             messages=messages
         )
         return_list.append(second_response.choices[0].message.content)
-        return json.dumps(return_list)
+    return json.dumps(return_list)
 
 if __name__ == "__main__":
     user_prompt = "tell me the tricks that Shaun white did"
