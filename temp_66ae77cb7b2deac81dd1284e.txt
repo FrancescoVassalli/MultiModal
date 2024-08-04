@@ -1,0 +1,8 @@
+This video has a snowboarding competition. Below is the table recording the tricks performed:
+| Athlete   | Trick                             | Result  |
+|-----------|-----------------------------------|---------|
+| Shaun White | Frontside double cork 1440        | Success |
+| Shaun White | Back-to-back 1440s                | Success |
+| Shaun White | Skyhook, frontside 540            | Success |
+| Shaun White | Double McTwist, tomahawk          | Success |
+| Shaun White | Frontside double cork 1260        | Success |

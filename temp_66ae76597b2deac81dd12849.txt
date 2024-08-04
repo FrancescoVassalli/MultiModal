@@ -1,0 +1,27 @@
+| Athlete   | Trick                          | Result   |
+|-----------|-------------------------------|----------|
+| person-1  | Tail Press                    | Success  |
+| person-1  | Nose Press                    | Success  |
+| person-1  | Ollie                         | Success  |
+| person-1  | Nollie                        | Success  |
+| person-1  | Frontside 180                 | Success  |
+| person-1  | Backside 180                  | Success  |
+| person-1  | Frontside 360                 | Success  |
+| person-1  | Backside 180 Nose Roll        | Success  |
+| person-1  | Frontside 180 Tail Roll       | Success  |
+| person-1  | Frontside Shifty              | Success  |
+| person-1  | Tripod                        | Success  |
+| person-1  | Toe Side Spray                | Success  |
+| person-1  | Heel Side Spray               | Success  |
+| person-1  | Layback                       | Success  |
+| person-1  | Laid Out Carve                | Success  |
+| person-1  | Nollie Chip Shot              | Success  |
+| person-1  | Toe Chip Frontside 180 Out    | Success  |
+| person-1  | Backside 180 Out              | Success  |
+| person-1  | Heel Side Carve Grab          | Success  |
+| person-1  | Toe Side Carve Grab           | Success  |
+| person-1  | Reverse Carve                 | Success  |
+| person-1  | 270 Spray to Pull Back        | Success  |
+| person-1  | Nose Block                    | Success  |
+| person-1  | Layback Good Time             | Success  |
+This table captures the snowboarding tricks performed by the athlete in the video, along with the results of each trick.

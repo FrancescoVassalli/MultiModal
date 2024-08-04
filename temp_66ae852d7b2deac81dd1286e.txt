@@ -1,0 +1,31 @@
+| Athlete  | Trick                                   | Result  |
+|----------|-----------------------------------------|---------|
+| Craig McMorris | Impressive jump                    | Success |
+| Craig McMorris | Mid-air spin                       | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Craig McMorris | Massive jump                       | Success |
+| Craig McMorris | Series of spins and flips          | Success |
+| Person-1 | Frontside double 1440 off the toes       | Success |
+| Person-1 | Backside 1800                            | Success |
+| Person-1 | Lip slide                                | Success |
+| Person-1 | Frontside double 1440 off the toes       | Success |
+| Person-1 | Backside 1800                            | Success |
+| Person-1 | Ollie double flip                        | Success |
+| Person-1 | Double Vama flip                         | Success |
+| Person-2 | Backside triple 1620                     | Success |
+| Person-2 | Cap 10 double                            | Success |
+| Person-2 | Switch back 16                           | Success |
+| Person-2 | Backside 1800                            | Success |
+| Person-2 | Melon poke                               | Success |
+| Person-2 | Backside melon rotation                  | Success |
