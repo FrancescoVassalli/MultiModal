@@ -6,6 +6,7 @@ openai==0.28
 twelvelabs
 pandas
 Flask
+flask-cors
 python-dotenv
 setuptools
 -e ./multi_snow
