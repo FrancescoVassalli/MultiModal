@@ -23,35 +23,35 @@ def get_one_trick_categories(input):
     """
 
     groq_client = Groq()
-    
+
     transcript = input
     system_prompt = """
-You are an AI trained to categorize a snowboard trick into predefined categories. 
+You are an AI trained to categorize a snowboard trick into predefined categories.
 The categories are:
 
 ['Grabs', 'Spins', 'Flips', 'Jumps', 'Slides', 'Buttering', 'Other']
 
 For the trick provided, you will determine which categories each trick falls into and provide a binary indicator (1 or 0) for each category. A trick
-can fall into multiple categories. 
-If the trick provided is invalid or null, then the binary indicator should be set to 0 for each category. 
+can fall into multiple categories.
+If the trick provided is invalid or null, then the binary indicator should be set to 0 for each category.
 
 
-The output columns should be: 
+The output columns should be:
 
 ['Trick Name','Grabs', 'Spins', 'Flips', 'Jumps', 'Slides', 'Buttering', 'Other']
 
 You will return a table with one row. The table should be in a table format with a column for the trick and then a column for each category
-and the values being 1 or 0 for all columns. Do not provide a text explanation, 
-text introduction, or any text that doesn't belong in the table. Only return a table with a header and one row. 
+and the values being 1 or 0 for all columns. Do not provide a text explanation,
+text introduction, or any text that doesn't belong in the table. Only return a table with a header and one row.
 
 """
 
     user_prompt = """
     Please categorize the following snowboard trick: {transcript}
     """.format(transcript=transcript)
-    
-    
-    
+
+
+
     completion = groq_client.chat.completions.create(
         model="llama3-70b-8192",
         messages=[
@@ -67,7 +67,7 @@ text introduction, or any text that doesn't belong in the table. Only return a t
     )
 
     formatted_table = format_table(completion.choices[0].message.content)
-    
+
     trick_df = formatted_table
     trick_df = trick_df[['Trick Name','Grabs', 'Spins', 'Flips', 'Jumps', 'Slides', 'Buttering',
        'Other']]
@@ -105,11 +105,11 @@ def get_subcategories_dict():
     """,
 
     'columns': f"""[Trick Name, 180, 360, 540, 720, 900, 1080, 1260, 1440, 1620, 1800, 1980, 2160]"""},
-    
-    #removed grabs 
+
+    #removed grabs
     #Indy: Grabbing the toe edge of the board between the bindings with the back hand.
     #Mute: Grabbing the toe edge of the board between the bindings with the front hand.
-        
+
     'Grabs': {'description':
     f"""
     Stalefish: Grabbing the heel edge of the board between the bindings with the back hand.
@@ -229,39 +229,39 @@ def get_scoring_dict():
 
 
 def subcategories_one_trick_table(trick_df,subcategories_dict,category):
-    
+
 
 
     groq_client = Groq()
-    
+
     subcategories_dict = get_subcategories_dict()
     subcategories_description = subcategories_dict[category]['description']
     subcategories_columns = subcategories_dict[category]['columns']
-    
-    
-    
+
+
+
     transcript = trick_df[trick_df[category]==1].drop_duplicates(subset='Trick Name')['Trick Name']
     transcript = list(transcript)
     system_prompt = """
-You are an AI trained to categorize snowboard tricks into predefined categories. 
+You are an AI trained to categorize snowboard tricks into predefined categories.
 The categories are:
 
 {subcategories_description}
 
 
 For the trick provided, you will determine which categories it falls into and provide a binary indicator (1 or 0) for each category. A trick
-can fall into multiple categories. 
-If the trick provided is invalid or null, then the binary indicator should be set to 0 for each category. 
+can fall into multiple categories.
+If the trick provided is invalid or null, then the binary indicator should be set to 0 for each category.
 
 
-The output columns should be: 
+The output columns should be:
 
 {subcategories_columns}
- 
+
 The output for each trick should be in a table format with a column for the trick and then a column for each category
-and the values being 1 or 0 for all columns. 
+and the values being 1 or 0 for all columns.
 Do not provide a text explanation or a text introduction. Only return a table with a header and one row.
-If you receive an invalid input or an empty table, the value for each column should be 0. 
+If you receive an invalid input or an empty table, the value for each column should be 0.
 
 
 
@@ -272,9 +272,9 @@ If you receive an invalid input or an empty table, the value for each column sho
 
     [{transcript}]
     """.format(transcript=transcript)
-    
-    
-    
+
+
+
     completion = groq_client.chat.completions.create(
         model="llama3-70b-8192",
         messages=[
@@ -287,22 +287,22 @@ If you receive an invalid input or an empty table, the value for each column sho
         stream=False,
         stop=None,
     )
-    
+
     formatted_table = format_table(completion.choices[0].message.content)
     numcols = [col for col in formatted_table.columns if 'Trick Name' not in col]
     dropcols = [col for col in formatted_table.columns if 'Unnamed' in col]
     sub_cols = [col for col in numcols if 'Unnamed' not in col]
-    
+
     if 'Trick Name' not in formatted_table.columns:
         #this is an LLM error
         formatted_table['Trick Name'] = transcript
         print('added trick names')
-        
+
     trick_df=trick_df.merge(formatted_table,on='Trick Name', how='left').fillna(0)
     trick_df[numcols] = trick_df[numcols].apply(lambda row: pd.to_numeric(row, errors='coerce'),axis=1).fillna(0)
-    
+
     trick_df = trick_df.drop(columns=dropcols,errors='ignore')
-    
+
 
     return trick_df, sub_cols
 
@@ -319,7 +319,7 @@ def add_subcategories_one_trick(trick_df):
         #print(cat)
         trick_df2, sub_cols = subcategories_one_trick_table(trick_df2,subcategories_dict=subcategories_dict,category=cat)
         cat_dict[cat] = sub_cols
-        
+
 
     return trick_df2
 
@@ -335,9 +335,9 @@ def add_uncategorized_categories(trick_df2):
             axis=1)
         except:
             pass
-    
 
-    #get rid of the main categories. Now we only have subcategories    
+
+    #get rid of the main categories. Now we only have subcategories
     trick_df3 = trick_df2.drop(columns=list(subcategories_dict.keys()))
     return trick_df3
 
@@ -350,30 +350,30 @@ def filter_numeric_columns(trick_df3):
 
     # Filter the dataframe to keep only the selected columns
     filtered_df = trick_df3[columns_to_keep]
-    
+
     return filtered_df
 
 
 def get_scoring(trick_df3):
     """
-    
+
     Args:
         trick_df3 (_type_): tricks dataframe with detected trip per subcategory
         scoring_dict (_type_): score per trick
 
     Returns:
-        scoring_df: tricks dataframe with scores 
-        
+        scoring_df: tricks dataframe with scores
+
     Also applies multiplier for combos
     """
-    
+
     scoring_dict = get_scoring_dict()
     trick_df3 = filter_numeric_columns(trick_df3)
-    
+
     scoring_cols = list(trick_df3.columns.drop(['Trick Name']))
     trick_df3['num_tricks'] = trick_df3[scoring_cols].sum(axis=1)
     scoring_df = trick_df3.copy()
-    
+
     for trick in scoring_cols:
         score = scoring_dict[trick]
         scoring_df[trick] = scoring_df[trick] * score
@@ -381,20 +381,20 @@ def get_scoring(trick_df3):
     multiplier = (np.maximum(scoring_df['num_tricks'],1) - 1)*0.5 + 1
     scoring_df['multiplier'] = multiplier
     scoring_df['score'] = scoring_df[scoring_cols].sum(axis=1)*multiplier
-    
+
     #total score
     total_score = int(scoring_df['score'].sum())
-    
+
     #summary
     scoring_summary = scoring_df.sort_values(by='score',ascending=False)[['Trick Name','score']]
-    
+
     #best trick
     best_trick = scoring_df.sort_values(by='score',ascending=False).iloc[0,1:].drop('Trick Name',errors='ignore').reset_index()
     trick_name = scoring_df.sort_values(by='score',ascending=False).iloc[0,0]
     best_trick.columns = ['Trick','Score']
     best_trick= best_trick[best_trick['Score'] > 0]
 
-    
+
     return scoring_df, scoring_summary, best_trick, total_score
 
 def score_trick(input):
@@ -402,4 +402,4 @@ def score_trick(input):
     trick_df2 = add_subcategories_one_trick(trick_df)
     trick_df3 = add_uncategorized_categories(trick_df2)
     scoring_df, scoring_summary, best_trick, total_score = get_scoring(trick_df3)
-    return scoring_df, scoring_summary, best_trick, total_score
+    return total_score
