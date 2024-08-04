@@ -4,7 +4,7 @@ import json
 import os
 
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"), )
-MODEL = 'llama3-groq-8b-8192-tool-use-preview'
+MODEL = 'llama3-groq-70b-8192-tool-use-preview'
 
 system_prompt = """You are a snowboarding coach who has recorded the following tricks in a markdown reference table. As this couch you always need to answer the question to best of your ability and follow the instructions closly in order to deliver the best response.  Your students will ask you some questions about diffferent tricks and you must  give helpful answers. If you want to demonstate a trick select one from the reference table. However if they ask about tricks only respond with the ones in the reference table here:  \nAthlete,Trick,Result,Unnamed: 3,ID\n----------,-----------------------------------------,---------,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Impressive jump                \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Mid-air spin                   \t,Success,,66ae852d7b2deac81dd1286e\nCraig
 McMorris ,Massive jump                   \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Series of spins and flips      \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Massive jump                   \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Series of spins and flips      \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Massive jump                   \t,Success,,66ae852d7b2deac81dd1286e\nCraig McMorris ,Series of spins and flips
@@ -23,15 +23,12 @@ forty\t,Success,,66ae76647b2deac81dd1284a\n-----------,-------------------------
 \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180              \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside 360             \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180 Nose Roll    \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside 180 Tail Roll   \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside Shifty          \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Tripod                    \t,Success,,66ae76597b2deac81dd12849\nperson-1
 ,Toe Side Spray            \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Heel Side Spray           \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Layback                   \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Laid Out Carve            \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Nollie Chip Shot          \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Toe Chip Frontside 180 Out\t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180 Out
 \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Heel Side Carve Grab      \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Toe Side Carve Grab       \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Reverse Carve             \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,270 Spray to Pull Back    \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Nose Block                \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Layback Good Time
-\t,Success,,66ae76597b2deac81dd12849\n,,,,66ae76597b2deac81dd12849\n"""
+\t,Success,,66ae76597b2deac81dd12849\n,,,,66ae76597b2deac81dd12849\n
+Use this table for finding tricks for the students. Only use tools if you absolutley have to. To find tricks that particular people did consult the table. When in doubt reread the table."""
 
 def get_video(query:str):
     """Evaluate a mathematical expression"""
-    try:
-        result = eval(expression)
-        return json.dumps({"result": result})
-    except:
-        return json.dumps({"error": "Invalid expression"})
+    return query
 
 def run_conversation(user_prompt):
     messages=[
@@ -49,7 +46,7 @@ def run_conversation(user_prompt):
             "type": "function",
             "function": {
                 "name": "get_video",
-                "description": "Given a trick return the video if you do not know what trick to input consult the main table",
+                "description": "Given a trick return the video",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -70,6 +67,7 @@ def run_conversation(user_prompt):
         tool_choice="auto",
         max_tokens=4096
     )
+    return_list = []
 
     response_message = response.choices[0].message
     print(f"First message {response_message}")
@@ -85,7 +83,7 @@ def run_conversation(user_prompt):
             function_to_call = available_functions[function_name]
             function_args = json.loads(tool_call.function.arguments)
             function_response = function_to_call(
-                expression=function_args.get("expression")
+                query=function_args.get("query")
             )
             messages.append(
                 {
@@ -99,8 +97,12 @@ def run_conversation(user_prompt):
             model=MODEL,
             messages=messages
         )
-        return second_response.choices[0].message.content
+        return_list.append(second_response.choices[0].message.content)
+    else:
+        print(f"No tools message {response_message.content}")
+        return_list.append(response_message.content)
+    return json.dumps(return_list)
 
-#user_prompt = "What is a trick Shaun White did that others did not?"
-user_prompt = "Find a video of Shaun white doing a trick "
-print(run_conversation(user_prompt))
+if __name__ == "__main__":
+    user_prompt = "tell me the tricks that Shaun white did"
+    print(run_conversation(user_prompt))
