@@ -9,4 +9,5 @@ Flask
 flask-cors
 python-dotenv
 setuptools
+youtube_search
 -e ./multi_snow

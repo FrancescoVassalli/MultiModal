@@ -2,7 +2,6 @@ from groq import Groq
 import json
 import os
 from youtube_search import YoutubeSearch
-import webbrowser
 from multi_snow.scoring import score_trick
 
 from dotenv import load_dotenv
