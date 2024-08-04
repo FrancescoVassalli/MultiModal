@@ -1,5 +1,9 @@
+import os, sys
+
+# Ensure the project root directory is in sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import json
-import os
 from flask import Flask
 from flask_cors import CORS
 from flask import request

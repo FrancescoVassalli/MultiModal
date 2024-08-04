@@ -1,34 +1,29 @@
-| Person   | Trick                                      | Outcome  |
-|----------|--------------------------------------------|----------|
-| Darcy    | Back two in two out                        | Success  |
-| Liam     | Front lipped                               | Failure  |
-| Lane     | Cap two pull                               | Failure  |
-| Darcy    | Down flat down board slide                 | Success  |
-| Liam     | Front blunt same way grab mute on the rail | Success  |
-| Lane     | Flat two front side 50 front one swivel    | Success  |
-| Darcy    | Switch front blunt same way                | Success  |
-| Lane     | Cab two same way                           | Failure  |
-| Darcy    | Switch board slide pretzel                 | Success  |
-| Liam     | Switch lip pretzel                         | Failure  |
-| Darcy    | Hard way cap two back to rag down rail     | Success  |
-| Liam     | Switch front board                         | Success  |
-| Lane     | Slack one pretzel one                      | Success  |
-| Darcy    | Switch back tail same way                  | Failure  |
-| Liam     | Hard way back one on                       | Failure  |
-| Darcy    | Back three on, back one out                | Success  |
-| Liam     | Swag two pole                              | Failure  |
-| Darcy    | Switch lip pretzel                         | Success  |
-| Liam     | Hard way front two                         | Success  |
-| Lane     | Hard way cab two, two out                  | Success  |
-| Darcy    | Switch back lip                            | Failure  |
-| Liam     | Switch back lip                            | Failure  |
-| Lane     | Switch back lip                            | Success  |
-| Darcy    | Half cab, gnarly bag, rodeo five           | Success  |
-| Liam     | Switch 50, slow back three                 | Success  |
-| Lane     | Lip slide pretzel                          | Success  |
-| Darcy    | Cap two from one four                      | Success  |
-| Liam     | Hard way cab step, double nose             | Success  |
-| Lane     | Hard way back two off the toes             | Success  |
-| Darcy    | Hard way front two                         | Success  |
-| Liam     | Swag two                                   | Success  |
-| Lane     | Switch back two-two out                    | Failure  |
+| Person   | Trick Description                                      | Outcome  |
+|----------|--------------------------------------------------------|----------|
+| Darcy    | Back two in two out                                    | Success  |
+| Liam     | Front lip                                              | Failure  |
+| Lane     | Cap two pull                                           | Failure  |
+| Darcy    | Down flat down board slide                             | Success  |
+| Liam     | Back tail same way 270                                 | Success  |
+| Lane     | Front blunt same way grab mute on the rail             | Success  |
+| Darcy    | Switch front blunt same way                            | Success  |
+| Liam     | Switch lip pretzel                                     | Failure  |
+| Lane     | Hard way cap two back to rag down rail                 | Success  |
+| Darcy    | Switch front blunt same way                            | Success  |
+| Liam     | Front board pretzel                                    | Success  |
+| Lane     | Back three, jump the whole rainbow, drag nose          | Success  |
+| Darcy    | Switch lip pretzel                                     | Success  |
+| Liam     | Front board pretzel                                    | Success  |
+| Lane     | Front side 50, backside swivel cap free                | Failure  |
+| Darcy    | Hard way back two off the toes                         | Success  |
+| Liam     | Hard way front two                                     | Success  |
+| Lane     | Switch back tail same way                              | Success  |
+| Darcy    | Switch back lip                                        | Success  |
+| Liam     | Switch front board                                     | Success  |
+| Lane     | Cab step, double nose                                  | Success  |
+| Darcy    | Half cab, gnarly bag, rodeo five                       | Success  |
+| Liam     | Switch 50, slow back three                             | Success  |
+| Lane     | Hardway cab two, two out                               | Success  |
+| Darcy    | Lip slide pretzel                                      | Success  |
+| Liam     | Cap two from one four                                  | Success  |
+| Lane     | Switch back lip                                        | Success  |
