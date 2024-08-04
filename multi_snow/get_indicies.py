@@ -1,9 +1,10 @@
 import requests
 import os
 import json
+import pandas as pd
 from typing import Dict, Any, List, Tuple
 from groq import Groq
-from multi_snow.twelve_start import format_table
+from multi_snow.twelve_start import get_table_for_video
 
 key = os.environ.get("TWELVE_LABS_API_KEY")
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"), )
@@ -112,10 +113,25 @@ def make_trick_table_from_transcript_with_groq(transcript:str) -> str:
 
 if __name__ == "__main__":
     index_map = get_indicies()
-    filtered_index_map = {'SNOW2':index_map['SNOW2']}
+    filtered_index_map = {'SNOW4':index_map['SNOW4']}
     get_videos(filtered_index_map)
-    filtered_index_map['SNOW2']['video_ids'] = [filtered_index_map['SNOW2']['video_ids'][2]]
-    get_transcripts(filtered_index_map)
-    print(len(filtered_index_map['SNOW2']))
-    make_trick_table_from_transcript_with_groq(filtered_index_map['SNOW2']['transcript_str'][0])
+    filtered_video_ids:List[str] = filtered_index_map['SNOW4']['video_ids']
+    print(f"Video ids: {filtered_video_ids}")
+    video_tables:List[pd.DataFrame] = []
+    for video_id in filtered_video_ids:
+        df = get_table_for_video(video_id)
+        if df is None:
+            continue
+        video_tables.append(df)
+    df = pd.concat(video_tables,ignore_index=True)
+    df['Result'] = df['Result'].apply(lambda x: x.strip() if not x is None else x)
+    df['Half'] = df['Half'].apply(lambda x: x.strip() if not x is None else x)
+    df['Rail'] = df['Rail'].apply(lambda x: x.strip() if not x is None else x)
+    df.drop(columns=['Unnamed: 3'], inplace=True)
+
+
+    print(df)
+    df.to_csv('output.csv',index=False)
+    print(df[df['Result'] == 'Failure'])
+
 
