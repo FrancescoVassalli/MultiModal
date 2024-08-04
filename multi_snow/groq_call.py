@@ -1,6 +1,9 @@
 from groq import Groq
 import json
 import os
+from youtube_search import YoutubeSearch
+import webbrowser
+from multi_snow.scoring import score_trick
 
 from dotenv import load_dotenv
 
@@ -114,14 +117,23 @@ Use the following table to find and demonstrate tricks for the students:
 - If you deliver a well-formatted, helpful, and professional response, you will be acknowledged as the best coach in the world.
 - Accurate and clear responses will enhance your reputation as an expert coach.
 - Markdown formatting with good spacing, lists, numbering, and readability will distinguish your responses as better than everyone else's.
+- If the student asks for a score and you call the get_score function you will be acknowleged as the best coach in the world.
 
-Only use tools if absolutely necessary. When in doubt, refer to the table.
+ When in doubt, refer to the table.
 """
 
 
 def get_video(query:str):
-    """Evaluate a mathematical expression"""
     return query
+    results = YoutubeSearch(query, max_results=1).to_dict()
+    for v in results:
+        return 'https://www.youtube.com' + v['link']
+
+def get_score(query:str):
+    print(f"scoring input : {query}")
+    result = json.dumps(score_trick(query))
+    print(f"scoring: {result}")
+    return result
 
 def run_conversation(user_prompt):
     messages=[
@@ -148,7 +160,24 @@ def run_conversation(user_prompt):
                             "description": "The name of the trick to find",
                         }
                     },
-                    "required": ["expression"],
+                    "required": ["query"],
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_score",
+                "description": "Given a trick return the score",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "The name of the trick to score",
+                        }
+                    },
+                    "required": ["query"],
                 },
             },
         }
@@ -169,6 +198,7 @@ def run_conversation(user_prompt):
     if tool_calls:
         available_functions = {
             "get_video": get_video,
+            "get_score": get_score
         }
         messages.append(response_message)
         for tool_call in tool_calls:
