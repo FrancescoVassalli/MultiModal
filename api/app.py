@@ -17,7 +17,7 @@ def hello_world():
     return json.dumps({"message": "Hello, World!"})
 
 
-@app.route("/chat-input", methods=["POST"])
+@app.route("/chat-completion", methods=["POST"])
 def chat_input():
     # Get JSON data from the request
     data = request.get_json()
@@ -28,8 +28,6 @@ def chat_input():
     print(f"Flask results: {result}")
 
     return json.dumps({"message": "Success", "result": result})
-
-
 
 
 if __name__ == "__main__":
