@@ -4,5 +4,9 @@ bs4
 html2text
 openai==0.28
 twelvelabs
-requests
-./multi_snow
+pandas
+Flask
+flask-cors
+python-dotenv
+setuptools
+-e ./multi_snow

@@ -5,6 +5,10 @@ import pandas as pd
 from typing import Dict, Any, List, Tuple
 from groq import Groq
 from multi_snow.twelve_start import get_table_for_video
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 key = os.environ.get("TWELVE_LABS_API_KEY")
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"), )
@@ -109,8 +113,6 @@ def make_trick_table_from_transcript_with_groq(transcript:str) -> str:
     print(response.choices[0].message.content)
 
 
-
-
 if __name__ == "__main__":
     index_map = get_indicies()
     filtered_index_map = {'SNOW4':index_map['SNOW4']}
@@ -133,5 +135,3 @@ if __name__ == "__main__":
     print(df)
     df.to_csv('output.csv',index=False)
     print(df[df['Result'] == 'Failure'])
-
-

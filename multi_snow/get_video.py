@@ -1,6 +1,10 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 key = os.environ.get("TWELVE_LABS_API_KEY")
 
@@ -24,8 +28,6 @@ def get_video_data(query:str,retry:int=0)->str:
         return search['data'][retry]
     else:
         print(response.text)
-
-
 
 
 def get_video_id(query:str,retry:int=0)->str:
@@ -56,7 +58,6 @@ def get_video_hls_from_query(query:str,retry:int=0) -> str:
     video_id = get_video_id(query,retry)
     if not video_id is None:
         return get_video_from_id(video_id)
-
 
 
 if __name__ == "__main__":
