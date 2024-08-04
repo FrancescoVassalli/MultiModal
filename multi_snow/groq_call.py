@@ -23,7 +23,8 @@ forty\t,Success,,66ae76647b2deac81dd1284a\n-----------,-------------------------
 \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180              \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside 360             \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180 Nose Roll    \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside 180 Tail Roll   \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Frontside Shifty          \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Tripod                    \t,Success,,66ae76597b2deac81dd12849\nperson-1
 ,Toe Side Spray            \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Heel Side Spray           \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Layback                   \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Laid Out Carve            \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Nollie Chip Shot          \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Toe Chip Frontside 180 Out\t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Backside 180 Out
 \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Heel Side Carve Grab      \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Toe Side Carve Grab       \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Reverse Carve             \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,270 Spray to Pull Back    \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Nose Block                \t,Success,,66ae76597b2deac81dd12849\nperson-1  ,Layback Good Time
-\t,Success,,66ae76597b2deac81dd12849\n,,,,66ae76597b2deac81dd12849\n"""
+\t,Success,,66ae76597b2deac81dd12849\n,,,,66ae76597b2deac81dd12849\n
+Use this table for finding tricks for the students. Only use tools if you absolutley have to. To find tricks that particular people did consult the table. When in doubt reread the table."""
 
 def get_video(query:str):
     """Evaluate a mathematical expression"""
@@ -66,8 +67,10 @@ def run_conversation(user_prompt):
         tool_choice="auto",
         max_tokens=4096
     )
+    return_list = []
 
     response_message = response.choices[0].message
+    return_list.append(response_message)
     print(f"First message {response_message}")
     tool_calls = response_message.tool_calls
     print(f"Tool calls {tool_calls}")
@@ -95,8 +98,9 @@ def run_conversation(user_prompt):
             model=MODEL,
             messages=messages
         )
-        return second_response.choices[0].message.content
+        return_list.append(second_response.choices[0].message.content)
+        return json.dumps(return_list)
 
-#user_prompt = "What is a trick Shaun White did that others did not?"
-user_prompt = "Using the provided table and not using any tools tell me the tricks that  Shaun white did"
-print(run_conversation(user_prompt))
+if __name__ == "__main__":
+    user_prompt = "tell me the tricks that Shaun white did"
+    print(run_conversation(user_prompt))
